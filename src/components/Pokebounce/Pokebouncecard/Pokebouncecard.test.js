@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Pokebouncelist from "./Pokebouncelist";
+import Pokebouncecard from "./Pokebouncecard";
 
-describe("Pokebouncelist", () => {
+describe("Pokebouncecard", () => {
   test("matches snapshot", () => {
     const wrapper = shallow(<Pokebouncelist />);
     expect(wrapper).toMatchSnapshot();

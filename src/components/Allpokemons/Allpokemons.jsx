@@ -13,7 +13,7 @@ const Allpokemons = () => {
   const { register, handleSubmit } = useForm();
 
   // Hacemos manejo del Submit 
-  const onSubmit =  (data, e) => {
+  const onSubmit = (data, e) => {
     setSearch(data.pokemon)
     e.target.pokemon.value = ""
   };
@@ -21,31 +21,38 @@ const Allpokemons = () => {
   // Hacemos el fetch y actualizamos el estado con un useEffect que equivale a un componentDidUpdate()
   useEffect(() => {
     async function fetchData() {
-      try{
+      try {
         // Petición a la PokeApi 
         const pokeUrl = await axios.get(`https://pokeapi.co/api/v2/pokemon/${search}`)
         // seteamos el objeto del pokemon 
-        setPokedata([...pokedata, {name: pokeUrl.data.name, 
+        setPokedata([...pokedata, {
+          name: pokeUrl.data.name,
           img: pokeUrl.data.sprites.front_default,
           weight: pokeUrl.data.weight,
-          id: pokeUrl.data.id}])
-      }catch(e){
-        setPokedata([]) 
+          id: pokeUrl.data.id
+        }])
+      } catch (e) {
+        setPokedata([])
         console.log("This pokemon does not exist or the field is empty")
       }
     } fetchData()
-  },[search])
+  }, [search])
 
   console.log(pokedata)
 
-  return <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+  return <div className="formDiv">
+    <h1>Pokemon battle</h1>
+    <p>Create you battle team! You can select more than one</p>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <input type="text" placeholder="Pokemon" {...register("pokemon", { required: true })} />
       <input type="submit" />
     </form>
     {/* Pintamos a los pokemons */}
-    {pokedata.map((pokemon, i) => <Pokecardlist pokemonInfo={pokemon} key={i}/> )}
+    <div className="pokeContainer">
+      {pokedata.map((pokemon, i) => <Pokecardlist pokemonInfo={pokemon} key={i} />)}
+    </div>
   </div>;
+
 };
 
 export default Allpokemons;

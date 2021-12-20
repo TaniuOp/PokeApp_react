@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import Pokecard from "./Pokecard"
+import "./Home.css"
+
 const axios = require('axios');
 
 
@@ -16,7 +18,7 @@ const Home = () => {
 
   // Hacemos manejo del Submit 
     const onSubmit =  (data, e) => {
-      setSearch(data.pokemon)
+      setSearch(data.pokemon.toLowerCase());
       console.log(data)
       e.target.pokemon.value = ""
       // console.log(search);
@@ -44,14 +46,13 @@ const Home = () => {
     } fetchData()
   },[search])
   
-
-  return <div>
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="Pokemon" {...register("pokemon", { required: true })} />
+  return <div className="formDiv">
+    <h1>Search your favorite Pokemon</h1>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <input type="text" placeholder="Ej: Pikachu" {...register("pokemon", { required: true })} />
       <input type="submit" />
-      {/* Pasar props al hijo */}
-        <> {pokedata.name? <Pokecard pokemonData={pokedata}/> : "" } </>       
     </form>
+        <> {pokedata.name? <Pokecard pokemonData={pokedata}/> : "" } </>       
   </div>;
 }
 

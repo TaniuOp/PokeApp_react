@@ -1,11 +1,11 @@
 import React from "react";
 
 const Pokecard = (props) => {
-  return <div>
-    <h2>Name: {props.pokemonData.name}</h2>
-    <h3>ID: {props.pokemonData.id}</h3>
+  return <div className="pokedata">
+    <h2>{props.pokemonData.name.toUpperCase()}</h2>
     <h3>Weight: {props.pokemonData.weight}</h3>
-    <img src={props.pokemonData.img} alt="" />
+    <img className="pokeimg" src={props.pokemonData.img} alt="" />
+    <h3>ID: {props.pokemonData.id}</h3>
   </div>;
 };
 
