@@ -1,0 +1,15 @@
+// // utils
+@import './utils/variables';
+@import './utils/mixins';
+
+// // componentes 
+@import './components/header';
+@import './components/nav';
+@import './components/home';
+@import './components/allpokemons';
+@import './components/pokebounce';
+@import './components/footer';
+
+
+// // views 
+@import './views/app'
