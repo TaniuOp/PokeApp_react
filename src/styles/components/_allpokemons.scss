@@ -1,0 +1,17 @@
+div.pokeContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .pokecards{
+    border: 1px solid rgba(22, 21, 21, 0.788);
+    width: 200px;
+    height: 270px;
+    margin: 3rem;
+    border-radius: 30px;
+    box-shadow: rgba(45, 46, 48, 0.514) 0px 8px 24px;
+    padding: 10px;
+  }
