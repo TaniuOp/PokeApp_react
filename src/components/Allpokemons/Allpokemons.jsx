@@ -22,6 +22,7 @@ const Allpokemons = () => {
   useEffect(() => {
     async function fetchData() {
       try {
+        // some: metodo de obj igual al find 
         if(pokedata.some(pokemon => pokemon.name === search)){
           console.log("Pokemon exists")
           // Petición a la PokeApi 

@@ -20,15 +20,17 @@ const Pokebounce = () => {
     async function fetchData() {
       try {
         if (searchedPokemon !== "") {
+          if(pokedata.some(pokemon => pokemon.name === search)){
+              console.log("Pokemon exists")
         // Petición a la PokeApi 
-        const pokeUrl = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchedPokemon}`)
+      }else{const pokeUrl = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchedPokemon}`)
         // seteamos el objeto del pokemon 
           setPokedata([...pokedata, {
             name: pokeUrl.data.name,
             img: pokeUrl.data.sprites.front_default,
             weight: pokeUrl.data.weight,
             id: pokeUrl.data.id
-          }])
+          }])}
         }
       } catch (e) {
         setPokedata([])
