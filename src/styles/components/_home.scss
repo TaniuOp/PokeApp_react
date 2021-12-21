@@ -15,6 +15,14 @@ body {
     border-bottom: 4px solid #000000;
   }
   
+  h2{
+    margin: 0;
+   }
+   
+   h3{
+       margin: 0;
+   }
+   
   .form {
     background: #0e101c;
     margin: 20px;
@@ -115,38 +123,9 @@ body {
 }
 
 
-h2{
- margin: 0;
-}
 
-h3{
-    margin: 0;
-}
 
-div.pokeContainer{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
-}
 
-.pokecards{
-  border: 1px solid rgba(22, 21, 21, 0.788);
-  width: 200px;
-  height: 270px;
-  margin: 3rem;
-  border-radius: 30px;
-  box-shadow: rgba(45, 46, 48, 0.514) 0px 8px 24px;
-  padding: 10px;
-}
 
-.formBounce{
-  background: #0e101c;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 20px;
-  width: 500px;
-  height: 100px;
-}
+
 

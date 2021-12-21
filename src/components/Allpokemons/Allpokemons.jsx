@@ -23,10 +23,10 @@ const Allpokemons = () => {
     async function fetchData() {
       try {
         // some: metodo de obj igual al find 
-        if(pokedata.some(pokemon => pokemon.name === search)){
+        if (pokedata.some(pokemon => pokemon.name === search)) {
           console.log("Pokemon exists")
           // Petición a la PokeApi 
-        }else{
+        } else {
           const pokeUrl = await axios.get(`https://pokeapi.co/api/v2/pokemon/${search}`)
           // seteamos el objeto del pokemon 
           setPokedata([...pokedata, {
@@ -34,8 +34,9 @@ const Allpokemons = () => {
             img: pokeUrl.data.sprites.front_default,
             weight: pokeUrl.data.weight,
             id: pokeUrl.data.id
-          }])}
-        }catch (e) {
+          }])
+        }
+      } catch (e) {
         setPokedata([])
         console.log("This pokemon does not exist or the field is empty")
       }

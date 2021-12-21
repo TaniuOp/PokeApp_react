@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import Pokecard from "./Pokecard"
-import "./Home.css"
 
 const axios = require('axios');
 
