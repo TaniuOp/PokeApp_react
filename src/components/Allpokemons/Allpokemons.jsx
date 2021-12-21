@@ -22,16 +22,19 @@ const Allpokemons = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        // Petición a la PokeApi 
-        const pokeUrl = await axios.get(`https://pokeapi.co/api/v2/pokemon/${search}`)
-        // seteamos el objeto del pokemon 
-        setPokedata([...pokedata, {
-          name: pokeUrl.data.name,
-          img: pokeUrl.data.sprites.front_default,
-          weight: pokeUrl.data.weight,
-          id: pokeUrl.data.id
-        }])
-      } catch (e) {
+        if(pokedata.some(pokemon => pokemon.name === search)){
+          console.log("Pokemon exists")
+          // Petición a la PokeApi 
+        }else{
+          const pokeUrl = await axios.get(`https://pokeapi.co/api/v2/pokemon/${search}`)
+          // seteamos el objeto del pokemon 
+          setPokedata([...pokedata, {
+            name: pokeUrl.data.name,
+            img: pokeUrl.data.sprites.front_default,
+            weight: pokeUrl.data.weight,
+            id: pokeUrl.data.id
+          }])}
+        }catch (e) {
         setPokedata([])
         console.log("This pokemon does not exist or the field is empty")
       }
