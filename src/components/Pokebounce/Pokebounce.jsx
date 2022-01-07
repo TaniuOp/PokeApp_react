@@ -39,6 +39,8 @@ const Pokebounce = () => {
     } fetchData()
   }, [searchedPokemon])
 
+  // crear funcion con onChange + if vacío & if repetido 
+
   return <div className="formDiv">
     <h1>Start writing your battle Pokemons and wait for the magic!</h1>
     <p>If you misspell a Pokemon name, the pokelist will reset to 0</p>

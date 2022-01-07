@@ -3,8 +3,9 @@ body {
   }
   
   form {
-    max-width: 800px;
-    margin: 0 auto;
+    // max-width: 800px;
+    // margin: 0 auto;
+    @include form
   }
   
   h1 {
